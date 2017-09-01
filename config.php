@@ -40,65 +40,62 @@
 	{
 		
 ?>
-	
-	<div class='startup'>
+		<div class='startup'>
 		<div class="slider fullscreen">
-			<ul class="slides" style="background-color: <?php echo sitesettings("sitecolor"); ?>">
-					
-					<?php
-					if($setting_aup==1)
-					{
-					?>
-						<li>
-							<img src="modules/startup/aup.png" class='hide-on-small-only'>
-							<div class="caption center-align">
-								<span class="startup_title">Acceptable Use Policy</span><br><br>
-								<span class="startup_text"><b>The Main Idea - </b> It is acceptable to use technology in Hamilton as long as it supports education.</span>
-							</div>
-							<div class='startupbutton'><button class="mdl-button mdl-js-button mdl-button--raised mdl-color--grey-100 mdl-color-text--black next">Next</button></div>
-						</li>
-						<li>
-							<img src="modules/startup/blank.png" class='hide-on-small-only'>
-							<div class="caption center-align">
-								<span class="startup_title">Review the Policy</span><br><br>
-								<span class="startup_text"><iframe src="https://docs.google.com/document/d/1FQBEng7aZCQt-L8RLCNA8x2OmJqlDu9Lpm86u5I_0a4/pub?embedded=true" width="100%" frameBorder="0"></iframe></span>
-							</div>
-							<div class='startupbutton'><button class="mdl-button mdl-js-button mdl-button--raised mdl-color--grey-100 mdl-color-text--black next">Got It</button></div>
-						</li>
-					<?php
-					}
-					?>	
-					
-					<?php
+		<ul class="slides" style="background-color: <?php echo sitesettings("sitecolor"); ?>">
 						
-					if($_SESSION['usertype']=="staff")
-					{
-					
-					?>
-					<li>
-						<img src="modules/startup/blank.png" class='hide-on-small-only'>
-						<div class="caption center-align">
-							<span class="startup_title">Open Enrollment</span><br><br>
+			<?php
+
+			//Slides Required for Staff			
+			if($_SESSION['usertype']=="staff")
+			{
+			?>
+				<li>
+					<img src="">
+					<div class="caption center-align">
+						<div>
+							<span class="startup_title" style='font-weight:500'>Open Enrollment</span><br><br>
 							<span class="startup_text"><iframe src="https://docs.google.com/document/d/1GytPtZKM-YB_J_m4shojr_ZbSVsYTFQTE4ZrajA2Zpk/pub?embedded=true" width="100%" frameBorder="0"></iframe></span>
-							<span><br><br><a class='mdl-button mdl-js-button mdl-button--raised mdl-color--grey-100 mdl-color-text--black' href='https://edu.hcsdoh.net/docs/treasurer/2017-open-enrollment-for-health-benefits/' target='_blank'>View Open Enrollment Documents</a></span>
+							<span><br><br><a class='mdl-button mdl-js-button mdl-button--raised mdl-color--grey-100 mdl-color-text--black' href='https://edu.hcsdoh.net/docs/treasurer/2017-open-enrollment-for-health-benefits/' target='_blank'>View Documents</a></span>
 						</div>
-						<div class='startupbutton'><button class="mdl-button mdl-js-button mdl-button--raised mdl-color--grey-100 mdl-color-text--black next">Got It</button></div>
-					</li>
-					<?php	
-					}
-					?>
-					<li>
-						<img src="modules/startup/getstarted.png" class='hide-on-small-only'>
-						<div class="caption center-align">
-							<span class="startup_title">Get Started</span><br><br>
-							<span class="startup_text">You're all set! Click below to get started.</span>
-						</div>
-						<div class='startupbutton'><button class="mdl-button mdl-js-button mdl-button--raised mdl-color--grey-100 mdl-color-text--black closeaction">Get Started</button></div>
-					</li>
-								
-			</ul>
+					</div>
+					<div class='startupbutton'><button class="mdl-button mdl-js-button mdl-button--raised mdl-color--grey-100 mdl-color-text--black next">Got It</button></div>
+				</li>
+			<?php	
+			}
+			?>
+			
+			<!--Slides Required for All-->
+			<li>
+				<img src="">
+				<div class="caption center-align">
+					<span class="startup_title" style='font-weight:500'>Acceptable Use Policy</span><br><br>
+					<span class="startup_text"><b>The Main Idea - </b> It is acceptable to use technology in Hamilton as long as it supports education.</span>
+				</div>
+				<div class='startupbutton'><button class="mdl-button mdl-js-button mdl-button--raised mdl-color--grey-100 mdl-color-text--black next">Next</button></div>
+			</li>
+			<li>
+				<img src="">
+				<div class="caption center-align" style='font-weight:500'>
+					<span class="startup_title" style='font-weight:500'>Review the Policy</span><br><br>
+					<span class="startup_text"><iframe src="https://docs.google.com/document/d/1FQBEng7aZCQt-L8RLCNA8x2OmJqlDu9Lpm86u5I_0a4/pub?embedded=true" width="100%" frameBorder="0"></iframe></span>
+				</div>
+				<div class='startupbutton'><button class="mdl-button mdl-js-button mdl-button--raised mdl-color--grey-100 mdl-color-text--black next">Got It</button></div>
+			</li>
+			
+			<!--Final Startup Slide-->
+			<li>
+				<img src="">
+				<div class="caption center-align">
+					<span class="startup_title" style='font-weight:500'>Get Started</span><br><br>
+					<span class="startup_text">You're all set! Click below to get started.</span>
+				</div>
+				<div class='startupbutton'><button class="mdl-button mdl-js-button mdl-button--raised mdl-color--grey-100 mdl-color-text--black closeaction">Get Started</button></div>
+			</li>
+									
+		</ul>
 		</div>  
-	</div>
+		</div>
 	
 	
 		<script>
@@ -127,7 +124,7 @@
 				});
 				
 				$( ".closeaction" ).click(function() {
-					window.open('https://edu.hcsdoh.net/docs/treasurer/2017-open-enrollment-for-health-benefits/', '_blank');
+					//window.open('https://edu.hcsdoh.net/docs/treasurer/2017-open-enrollment-for-health-benefits/', '_blank');
 					$('.startup').fadeOut();
 					$('.slider').slider('pause');
 					<?php 
